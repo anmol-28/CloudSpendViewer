@@ -363,10 +363,29 @@ html, body, #root {
   align-items: center;
   margin-top: 12px;
 }
+.breakdown--clickable {
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.08s ease;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+.breakdown--clickable:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-1px);
+}
 .bar-label { width: 120px; font-weight: 700; }
+.bar-label-meta {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
 .bar { flex: 1; height: 18px; border-radius: 10px; background: var(--aws-card); overflow: hidden; }
 .bar-fill.aws { height: 100%; width: 65%; background: var(--aws-orange); }
 .bar-fill.gcp { height: 100%; width: 60%; background: #4285F4; }
+.bar-fill--active {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.4), 0 0 16px rgba(255,153,0,0.55);
+}
 .bar-amount { font-weight: 800; margin-left: 12px; }
 
 /* modal */

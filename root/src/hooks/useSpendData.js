@@ -100,6 +100,18 @@ export function useSpendData(initialPageSize = 10) {
 
   const aggregates = useMemo(() => computeAggregates(filteredRows), [filteredRows]);
 
+  const teamTotals = useMemo(() => {
+    const totals = {};
+    for (const row of filteredRows) {
+      if (!row) continue;
+      const team = row.team || "Unknown";
+      const cost = Number(row.cost_usd ?? row.cost ?? 0);
+      if (Number.isNaN(cost)) continue;
+      totals[team] = (totals[team] || 0) + cost;
+    }
+    return totals;
+  }, [filteredRows]);
+
   const totalPages = Math.max(1, Math.ceil(filteredRows.length / pageSize));
   const paginatedRows = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
@@ -120,6 +132,7 @@ export function useSpendData(initialPageSize = 10) {
     paginatedRows,
     aggregates,
     providerTotals: aggregates.totalsByProvider,
+    teamTotals,
     selectedRow,
     setSelectedRow,
     setFilter,

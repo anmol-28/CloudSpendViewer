@@ -1,3 +1,6 @@
+import awsIcon from '../assets/aws-svgrepo-com.svg';
+import gcpIcon from '../assets/gcp-svgrepo-com.svg';
+
 export default function ProviderBreakdown({ awsTotal = 0, gcpTotal = 0, onProviderClick }) {
   const total = awsTotal + gcpTotal || 1;
   const awsPct = Math.round((awsTotal / total) * 100);
@@ -19,7 +22,8 @@ export default function ProviderBreakdown({ awsTotal = 0, gcpTotal = 0, onProvid
         onClick={() => handleClick("AWS")}
         onKeyDown={(e) => e.key === "Enter" && handleClick("AWS")}
       >
-        <div className="bar-label">
+        <div className="bar-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <img src={awsIcon} alt="AWS" style={{ width: 22, height: 22, background: '#fff', padding: 2, borderRadius: 5 }} />
           AWS (Amazon)
           <span className="bar-label-meta">{awsPct}%</span>
         </div>
@@ -37,7 +41,8 @@ export default function ProviderBreakdown({ awsTotal = 0, gcpTotal = 0, onProvid
         onClick={() => handleClick("GCP")}
         onKeyDown={(e) => e.key === "Enter" && handleClick("GCP")}
       >
-        <div className="bar-label">
+        <div className="bar-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <img src={gcpIcon} alt="GCP" style={{ width: 22, height: 22 }} />
           GCP (Google)
           <span className="bar-label-meta">{gcpPct}%</span>
         </div>

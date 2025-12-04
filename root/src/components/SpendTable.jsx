@@ -1,3 +1,5 @@
+import awsIcon from '../assets/aws-svgrepo-com.svg';
+import gcpIcon from '../assets/gcp-svgrepo-com.svg';
 import { getProvider } from "../utils/provider";
 
 export default function SpendTable({
@@ -103,6 +105,12 @@ export default function SpendTable({
                 </div>
                 <div className="cell cell-cloud" data-label="Cloud">
                   <span className={`badge ${badgeClass}`}>{provider || "N/A"}</span>
+                  {provider === "AWS" && (
+                    <img src={awsIcon} alt="AWS" style={{ width: 22, height: 22, background: '#fff', padding: 2, borderRadius: 5, marginLeft: 6 }} />
+                  )}
+                  {provider === "GCP" && (
+                    <img src={gcpIcon} alt="GCP" style={{ width: 22, height: 22, marginLeft: 6 }} />
+                  )}
                 </div>
                 <div className="cell cell-service" data-label="Service">
                   <span className="service-pill">{row.service || "-"}</span>

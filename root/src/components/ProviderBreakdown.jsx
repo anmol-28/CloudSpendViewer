@@ -22,12 +22,12 @@ export default function ProviderBreakdown({ awsTotal = 0, gcpTotal = 0, onProvid
         onClick={() => handleClick("AWS")}
         onKeyDown={(e) => e.key === "Enter" && handleClick("AWS")}
       >
-        <div className="bar-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <img src={awsIcon} alt="AWS" style={{ width: 22, height: 22, background: '#fff', padding: 2, borderRadius: 5 }} />
+        <div className="bar-label" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <img src={awsIcon} alt="AWS" style={{ width: 16, height: 16, background: '#fff', padding: 1, borderRadius: 4 }} />
           AWS (Amazon)
-          <span className="bar-label-meta">{awsPct}%</span>
+          <span className="bar-label-meta" style={{ marginLeft: 8, minWidth: 32, textAlign: 'left' }}>{awsPct}%</span>
         </div>
-        <div className="bar">
+        <div className="bar" style={{ width: '100%' }}>
           <div className="bar-fill aws" style={{ width: `${awsPct}%` }} />
         </div>
         <div className="bar-amount">${awsTotal}</div>
@@ -41,12 +41,12 @@ export default function ProviderBreakdown({ awsTotal = 0, gcpTotal = 0, onProvid
         onClick={() => handleClick("GCP")}
         onKeyDown={(e) => e.key === "Enter" && handleClick("GCP")}
       >
-        <div className="bar-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <img src={gcpIcon} alt="GCP" style={{ width: 22, height: 22 }} />
+        <div className="bar-label" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <img src={gcpIcon} alt="GCP" style={{ width: 16, height: 16 }} />
           GCP (Google)
-          <span className="bar-label-meta">{gcpPct}%</span>
+          <span className="bar-label-meta" style={{ marginLeft: 8, minWidth: 32, textAlign: 'left' }}>{gcpPct}%</span>
         </div>
-        <div className="bar">
+        <div className="bar" style={{ width: '100%' }}>
           <div className="bar-fill gcp" style={{ width: `${gcpPct}%` }} />
         </div>
         <div className="bar-amount">${gcpTotal}</div>

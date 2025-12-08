@@ -3,14 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /**
- * SummaryBar - presentational only
- * Props expected (matching your App.jsx):
- *  - loading (bool)
- *  - error (string)
- *  - providersCount (number)
- *  - totalSpend (number)    // raw numeric USD
- *  - totalRecords (number)
- *  - onRefresh (func)       // optional
+SummaryBar - presentational only
  */
 export default function SummaryBar({ loading, error, providersCount, totalSpend, totalRecords }) {
   // Safe currency formatter
